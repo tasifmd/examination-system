@@ -12,4 +12,8 @@ public interface StudentService {
 	public List<Student> getAllStudents();
 
 	public String upteStudent(String studentId, StudentDto studentDto);
+
+	public Student getStudent(String studentId);
+
+	public String deleteStudent(String studentId);
 }

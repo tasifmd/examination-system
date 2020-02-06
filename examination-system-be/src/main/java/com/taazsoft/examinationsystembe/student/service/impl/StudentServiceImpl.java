@@ -1,7 +1,6 @@
 package com.taazsoft.examinationsystembe.student.service.impl;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +44,21 @@ public class StudentServiceImpl implements StudentService {
 		student.setStudentClass(studentDto.getStudentClass());
 		studentRepository.save(student);
 		return "Student updated";
+	}
+
+	@Override
+	public Student getStudent(String studentId) {
+		Student student = studentRepository.findByStudentId(studentId)
+				.orElseThrow(() -> new RuntimeException("No student exist"));
+		return student;
+	}
+
+	@Override
+	public String deleteStudent(String studentId) {
+		Student student = studentRepository.findByStudentId(studentId)
+				.orElseThrow(() -> new RuntimeException("No student exist"));
+		studentRepository.delete(student);
+		return "Student deleted";
 	}
 
 }

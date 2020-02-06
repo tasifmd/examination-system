@@ -1,7 +1,6 @@
 package com.taazsoft.examinationsystembe.student.model;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +20,8 @@ public class Student implements Serializable {
 	@GeneratedValue(generator = "student-uuid")
 	@GenericGenerator(name = "student-uuid", strategy = "uuid")
 	private String studentId;
-	private UUID examId;
-	private UUID markId;
+	private String examId;
+	private String markId;
 	private String firstName;
 	private String lastName;
 	private String dob;
